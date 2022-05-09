@@ -16,6 +16,7 @@ const ImagesReducer = (state = initialState, action) => {
     return {
       ...state,
       imagesList: payload.data,
+      loading: false,
       paginationState: { ...state.paginationState, page: payload.page },
     };
   } else if (type === SET_LOADING) {

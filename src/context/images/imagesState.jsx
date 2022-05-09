@@ -17,11 +17,6 @@ const ImagesState = ({ children }) => {
 
   // get images
   const getImages = async (page = 1, limit = 30) => {
-    dispatch({
-      type: SET_LOADING,
-      payload: true,
-    });
-
     try {
       const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=${30}`);
       if (!response.ok) {
@@ -50,11 +45,6 @@ const ImagesState = ({ children }) => {
         payload: true,
       });
     }
-
-    dispatch({
-      type: SET_LOADING,
-      payload: false,
-    });
   };
 
   // get image details
