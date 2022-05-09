@@ -1,0 +1,52 @@
+.flexcontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.scrolltotopbtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 2;
+  font-size: 42px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2px;
+}
+.footerofcard {
+  border-top: 0.8px solid #424242d9;
+  margin-top: 10px;
+}
+.authortitle {
+  position: absolute;
+  bottom: 79px;
+  left: 20px;
+  background: white;
+  padding-right: 6px;
+  padding-left: 6px;
+  font-size: 24px;
+  font-weight: 500;
+}
+.ant-card-body {
+  padding: 24px 0px;
+}
+.cardpelement {
+  margin-top: 25px;
+  margin-left: 26px;
+  font-size: large;
+  color: rgb(128 127 127);
+}
+.ant-modal-body {
+  padding: 0px;
+}
+.ant-modal-content {
+  max-width: 400px;
+}
