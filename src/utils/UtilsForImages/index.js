@@ -6,6 +6,7 @@ export const initialState = {
     limit: 30,
   },
   loading: true,
+  paginationLoading: true,
   singleImageDetailsLoading: true,
   imagesListError: false,
   singleImageDetailsError: false,

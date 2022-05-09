@@ -26,14 +26,15 @@ const ImageContainer = () => {
     dispatch,
     filteredImagesList,
     searchString,
+    paginationLoading,
+    paginationState,
   } = useGlobalContext();
 
   const list = searchString ? filteredImagesList : imagesList;
 
   const [modalVisibility, setModalVisibility] = useState(false);
-
   //  Custom Hooks
-  const { paginationLoading, lastImageElementRef } = useInfiniteScroll();
+  const { lastImageElementRef } = useInfiniteScroll(paginationState);
   const { scrollToTopBtnVisible, scrollToTop } = useScrollToTop();
 
   const getSelectedImageId = (e) => {

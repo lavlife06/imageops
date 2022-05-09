@@ -5,6 +5,7 @@ import {
   SET_FILTERED_IMAGES_LIST,
   SET_IMAGES_ERROR,
   SET_LOADING,
+  SET_PAGINATION_LOADING,
   SET_SINGLE_IMAGE_DETAILS_ERROR,
   SET_SINGLE_IMAGE_DETAILS_LOADING,
 } from '../types';
@@ -17,12 +18,18 @@ const ImagesReducer = (state = initialState, action) => {
       ...state,
       imagesList: payload.data,
       loading: false,
+      paginationLoading: false,
       paginationState: { ...state.paginationState, page: payload.page },
     };
   } else if (type === SET_LOADING) {
     return {
       ...state,
       loading: payload,
+    };
+  } else if (type === SET_PAGINATION_LOADING) {
+    return {
+      ...state,
+      paginationLoading: payload,
     };
   } else if (type === SET_IMAGES_ERROR) {
     return {

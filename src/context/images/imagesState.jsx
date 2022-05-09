@@ -8,6 +8,7 @@ import {
   SET_FILTERED_IMAGES_LIST,
   SET_IMAGES_ERROR,
   SET_LOADING,
+  SET_PAGINATION_LOADING,
   SET_SINGLE_IMAGE_DETAILS_ERROR,
   SET_SINGLE_IMAGE_DETAILS_LOADING,
 } from '../types';
@@ -18,6 +19,10 @@ const ImagesState = ({ children }) => {
   // get images
   const getImages = async (page = 1, limit = 30) => {
     try {
+      dispatch({
+        type: SET_PAGINATION_LOADING,
+        payload: true,
+      });
       const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=${30}`);
       if (!response.ok) {
         throw Error('something went wrong');
@@ -35,6 +40,7 @@ const ImagesState = ({ children }) => {
       } else {
         newImagesList = data;
       }
+      console.log(page, 'newImagesList', newImagesList);
       dispatch({
         type: GET_IMAGES,
         payload: { data: newImagesList, page: page },
@@ -133,6 +139,7 @@ const ImagesState = ({ children }) => {
         imagesList: state.imagesList,
         paginationState: state.paginationState,
         loading: state.loading,
+        paginationLoading: state.paginationLoading,
         singleImageDetailsLoading: state.singleImageDetailsLoading,
         singleImageDetails: state.singleImageDetails,
         currentImageIndex: state.currentImageIndex,
